@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "private_network", ip: "192.168.250.10"
 
-  config.vm.synced_folder "C:\\MySpace", "/myspace"
+  #config.vm.synced_folder "C:\\MySpace", "/myspace"
 
   config.vm.provision "shell", inline: <<-SHELL
      yum update -y
@@ -18,11 +18,15 @@ Vagrant.configure("2") do |config|
      #source /etc/profile
   SHELL
 
-
   #install nexus oss3, jenkins, gitlab; zookeeper, kafka; postgres; openldap
+  #config.vm.provision "shell", path: "nexus.sh"
+  #config.vm.provision "shell", path: "jenkins.sh"
+  #config.vm.provision "shell", path: "gitlab.sh"
+  #config.vm.provision "shell", path: "kafka.sh"
+  #config.vm.provision "shell", path: "openldap.sh"
   #config.vm.provision "shell", path: "postgres.sh"
   #config.vm.provision "file", source: "postgresDB.sql", destination: "postgresDB.sql"
-
+  #config.vm.provision "shell", path: "redis.sh"
   config.vm.provider "virtualbox" do |vb|
      vb.gui=false
      vb.memory = 2048
